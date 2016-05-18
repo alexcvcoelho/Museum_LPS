@@ -48,13 +48,30 @@ public class ThemeService {
 	 * <code>null</code> is returned.
 	 */
 	public Theme findById(Long id) {
-		Theme t = new Theme();
-		
+		Theme t = new Theme();		
 		t.setId(id);
 		ThemeDO tdo = t.getEntity();
 		
 		return tdo.getDto();
 	}
+        
+        public void createTheme(Theme theme) throws Exception{
+		ThemeDO themeDO = getEntity(theme);
+		dao.createTheme(themeDO);
+		theme.setId(themeDO.getId());
+	}
+        
+        public ThemeDO getEntity(Theme theme){
+		ThemeDO tdo = new ThemeDO();
+		tdo.setId(theme.getId());
+		tdo.setTitle(theme.getTitle());
+		tdo.setDescription(theme.getDescription());
+		return tdo;
+	}
+
+
+        
+
 
 	/**
 	 * Lists all the themes.
