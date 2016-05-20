@@ -18,7 +18,7 @@
   <properties>
    <!-- Connection properties -->
 
-<<<<<<< HEAD
+
    <property name="eclipselink.target-database" value="MySQL" />
    <!-- drop-and-create-tables -->
    <property name="eclipselink.ddl-generation" value="create-tables" />
@@ -47,42 +47,10 @@
    <property name="hibernate.c3p0.timeout" value="1800" />
    <property name="hibernate.c3p0.max_statements" value="50" />
    <property name="hibernate.archive.autodetection" value="class, hbm" />
-   <property name="hibernate.hbm2ddl.auto" value="create" />
+   <property name="hibernate.hbm2ddl.auto" value="update" />
    <property name="hibernate.show_sql" value="true" />
   </properties>
  </persistence-unit>
-=======
-			<property name="eclipselink.target-database" value="MySQL" />
-			<!-- drop-and-create-tables -->
-			<property name="eclipselink.ddl-generation" value="create-tables" />
-			<property name="eclipselink.ddl-generation.output-mode"
-				value="database" />
-			<property name="eclipselink.logging.parameters" value="true" />
-			<property name="eclipselink.logging.level" value="FINE" />
-			<property name="eclipselink.jdbc.bind-parameters" value="true"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/lpsmuseumdb"/>
-			<property name="javax.persistence.jdbc.user" value="root"/>
-			<property name="javax.persistence.jdbc.password" value="root"/>
-		</properties>
-	</persistence-unit>
-	<persistence-unit name="museum-hibernate"
-		transaction-type="RESOURCE_LOCAL">
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<exclude-unlisted-classes>false</exclude-unlisted-classes>
-		<properties>
-			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/lpsmuseumdb" />
-			<property name="hibernate.connection.username" value="root" />
-			<property name="hibernate.connection.password" value="" />
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-			<property name="hibernate.c3p0.min_size" value="5" />
-			<property name="hibernate.c3p0.max_size" value="30" />
-			<property name="hibernate.c3p0.timeout" value="1800" />
-			<property name="hibernate.c3p0.max_statements" value="50" />
-			<property name="hibernate.archive.autodetection" value="class, hbm" />
-			<property name="hibernate.hbm2ddl.auto" value="create" />
-			<property name="hibernate.show_sql" value="true" />
-		</properties>
-	</persistence-unit>
->>>>>>> c58c801e2287cb5ce929585fc82ec4aca3a5f204
+
+
 </persistence>
