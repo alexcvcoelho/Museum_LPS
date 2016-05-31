@@ -55,10 +55,20 @@ public class ThemeService {
 		return tdo.getDto();
 	}
         
-        public void createTheme(Theme theme) throws Exception{
+        public void createTheme(Theme theme) throws Exception{            
 		ThemeDO themeDO = getEntity(theme);
 		dao.createTheme(themeDO);
 		theme.setId(themeDO.getId());
+	}
+        
+        public void editTheme(Theme theme) throws Exception{            
+		ThemeDO themeDO = getEntity(theme);
+		dao.editTheme(themeDO);		
+	}
+        
+        public void deleteTheme(Theme theme) throws Exception{            
+		ThemeDO themeDO = getEntity(theme);
+		dao.deleteTheme(themeDO);		
 	}
         
         public ThemeDO getEntity(Theme theme){

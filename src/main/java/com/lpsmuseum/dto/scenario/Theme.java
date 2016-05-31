@@ -1,6 +1,7 @@
 package com.lpsmuseum.dto.scenario;
 
 import com.lpsmuseum.entity.ThemeDO;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  * This class represents a <b>theme</b>, just for transfer between client-side 
@@ -93,6 +94,7 @@ public class Theme {
 	 * <code>Theme</code> instance.
 	 * @see ThemeDO
 	 */
+        @JsonIgnore
 	public ThemeDO getEntity() {
 		ThemeDO tdo = new ThemeDO();
 		
