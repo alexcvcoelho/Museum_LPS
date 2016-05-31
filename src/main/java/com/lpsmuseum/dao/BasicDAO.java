@@ -23,7 +23,8 @@ public abstract class BasicDAO {
 	protected void create(Object obj){
 		EntityManager em = PersistenceUtil.getEntityManager();
 		em.getTransaction().begin();
-		if(findEntity(obj) == null) em.persist(obj);
+		if(findEntity(obj) == null)
+                    em.persist(obj);
 		em.flush();
 		em.getTransaction().commit();
 		em.close();
