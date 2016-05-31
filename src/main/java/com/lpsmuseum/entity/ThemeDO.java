@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import com.lpsmuseum.dto.scenario.Theme;
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 /**
  * An entity class for theme's table (with name <code>theme</code>). The table 
