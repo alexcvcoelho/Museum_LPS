@@ -22,15 +22,10 @@ public class AnnotationDAO extends BasicDAO {
 		AnnotationDO ado = (AnnotationDO) obj;
 		EntityManager em = PersistenceUtil.getEntityManager();
 		if (ado.getId() != null) {
-			Object xdo = em.find(MuseologicalObjectDO.class, ado.getId());
+			Object xdo = em.find(ado.getClass(), ado.getId());
 			return xdo;
 		} else {
-			List<AnnotationDO> ados = (List<AnnotationDO>) em.createQuery(
-					"SELECT a "
-					+ "FROM AnnotationDO a "
-					+ "WHERE a.title = '" + ado.getTitle() + "'"
-			).getResultList();
-			ado = ados.isEmpty() ? null : ados.get(0);
+			ado = null;
 		}
 		em.close();
 		return ado;
