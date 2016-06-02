@@ -60,11 +60,9 @@
 	 <dependency>
 	  <groupId>org.codehaus.jackson</groupId>
 	  <artifactId>jackson-core-asl</artifactId>
-<<<<<<< HEAD
-	  <version>1.9.11</version>
-=======
+
 	  <version>1.9.12</version>
->>>>>>> 949655a4ae270d561d27375c2c833e0ade0bc234
+
 	  <type>jar</type>
 	 </dependency>
 	</dependencies>
