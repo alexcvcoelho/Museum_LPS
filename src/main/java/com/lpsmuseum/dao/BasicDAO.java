@@ -28,6 +28,7 @@ public abstract class BasicDAO {
 		em.flush();
 		em.getTransaction().commit();
 		em.close();
+                
 	}
 	
 	/**
@@ -131,7 +132,14 @@ public abstract class BasicDAO {
 	 */
 	@SuppressWarnings("rawtypes")
 	protected List list(String type, String where){
-		EntityManager em = PersistenceUtil.getEntityManager();
+        /*
+            
+            Alterado:
+                Select dentro de uma transaction, pois estava resultando leitura suja
+            
+            */
+		EntityManager em = PersistenceUtil.getEntityManager();    
+                em.getTransaction().begin();
 		String sql;
 		if (where == null)
 			sql = "SELECT o FROM " + type + " o";
@@ -139,6 +147,8 @@ public abstract class BasicDAO {
 			sql = "SELECT o FROM " + type + " o where " + where;
 		List odos = em.createQuery(sql)
 				.getResultList();
+                em.flush();
+                em.getTransaction().commit();
 		em.close();
 		return odos;
 	}

@@ -130,7 +130,6 @@ public class AnswerService {
 	 */
 	public List<Answer> listAnswers() {
 		List<AnswerDO> ados = dao.listAnswers();
-		
 		return listAnswer(ados);
 	}
 
