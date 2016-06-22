@@ -3,6 +3,7 @@ package com.lpsmuseum.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import org.hibernate.Session;
 
 /**
  * This <code>abstract class</code> is based in the <b>Data Access Object 
@@ -26,6 +27,7 @@ public abstract class BasicDAO {
 		if(findEntity(obj) == null)
                     em.persist(obj);
 		em.flush();
+                em.clear();
 		em.getTransaction().commit();
 		em.close();
                 
@@ -139,7 +141,11 @@ public abstract class BasicDAO {
             
             */
 		EntityManager em = PersistenceUtil.getEntityManager();    
+                em.unwrap(Session.class).clear();
                 em.getTransaction().begin();
+                em.flush();
+                em.clear();
+                em.getTransaction().commit();
 		String sql;
 		if (where == null)
 			sql = "SELECT o FROM " + type + " o";
@@ -147,8 +153,8 @@ public abstract class BasicDAO {
 			sql = "SELECT o FROM " + type + " o where " + where;
 		List odos = em.createQuery(sql)
 				.getResultList();
-                em.flush();
-                em.getTransaction().commit();
+                
+                
 		em.close();
 		return odos;
 	}
