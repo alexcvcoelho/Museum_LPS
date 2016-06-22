@@ -52,6 +52,8 @@ public class Scenario {
 	 * Class constructor.
 	 */
 	public Scenario() {
+            //Alterado na LPS
+            this.objects = new ArrayList<MuseologicalObject>();
 	}
 
 	/**

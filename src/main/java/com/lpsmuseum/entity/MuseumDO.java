@@ -1,6 +1,7 @@
 package com.lpsmuseum.entity;
 
 import com.lpsmuseum.dto.Museum;
+import com.lpsmuseum.dto.Scenario;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -142,10 +143,12 @@ public class MuseumDO implements Serializable {
 
 		m.setId(id);
 		m.setName(name);
+                List<Scenario> lst= new ArrayList<Scenario>();
 		for (ScenarioDO s : scenarios) {
-			m.getScenarios().add(s.getDto());
+                        lst.add(s.getDto());
 		}
-
+                m.setScenarios(lst);
 		return m;
 	}
+
 }
