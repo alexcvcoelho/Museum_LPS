@@ -31,6 +31,11 @@ public class Challenge {
 	 * Class constructor.
 	 */
 	public Challenge() {
+            
+            
+            description = "";
+            answers = new ArrayList<Answer>();
+            
 	}
 
 	/**
