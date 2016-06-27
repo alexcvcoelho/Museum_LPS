@@ -140,7 +140,10 @@ public class Challenge {
 	}
 
     public Object getCorrectAnswer() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       for(Answer a : answers)
+           if(a.isCorrect())
+               return a;
+       return null;
     }
 
     public void setCorrectAnswer(Answer answer) {
