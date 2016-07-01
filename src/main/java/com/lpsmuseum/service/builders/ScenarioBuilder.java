@@ -29,7 +29,7 @@ public class ScenarioBuilder {
 	 * @throws Exception if <code>Scenario.getEntity</code> rises a exception.
 	 * @see Scenario
 	 */
-	public Scenario build(String name) throws Exception {
+	public Scenario build(String name, Long idMuseum) throws Exception {
 		Scenario s;
 		if (challenges.isEmpty()) {
 			s = new Scenario(name, objects);
@@ -40,6 +40,7 @@ public class ScenarioBuilder {
 			throw new Exception("Theme must not be null!");
 		}
 		s.setTheme(theme);
+                s.setIdMuseum(idMuseum);
 		ScenarioService svc = new ScenarioService();
 		svc.createScenario(s);
 		return s;
